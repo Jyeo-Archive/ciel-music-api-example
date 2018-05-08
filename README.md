@@ -79,7 +79,7 @@ https://music.cieldev.com/api/getchart/genie
 ```
 PS C:\Users\JunhoYeo\Desktop\ciel music api> python .\example.py
 [id] : LS74a_bbOgE
-[title] : %EC%A3%BC%EC%A7%80%EB%A7%88
-[artist] : %EB%A1%9C%EA%BC%AC
+[title] : 주지마
+[artist] : 로꼬
 [thumbnail image URL] : https://cdnimg.melon.co.kr/cm/album/images/101/60/487/10160487_500.jpg/melon/resize/120/quality/80/optimize
 ```

@@ -36,8 +36,8 @@ import sys
 #         'index.html',
 #         id = id,
 #         thumbnail = thumbnail,
-#         title = title,
-#         artist = artist
+#         title = urllib.parse.unquote(title),
+#         artist = urllib.parse.unquote(artist)
 #     )
 
 # if __name__ == "__main__":
@@ -55,9 +55,10 @@ artist = j[0]['artist'] # 아티스트명
 thumbnail = j[0]['thumbnail'] # 앨범 링크 
 # 멜론차트 1등 음악을 가져옴
 
-title = urllib.parse.quote(title)
-artist = urllib.parse.quote(artist)
-url = 'https://music.cieldev.com/api/getyoutube/' + title + '/' + artist
+url = (
+    'https://music.cieldev.com/api/getyoutube/' + 
+    urllib.parse.quote(title) + '/' + urllib.parse.quote(artist)
+)
 # print(url)
 u = urllib.request.urlopen(url)
 data = u.read()
@@ -68,8 +69,8 @@ id = j["id"] # 유튜브 ID
 sys.stdout.write('[id] : ')
 sys.stdout.write(id)
 sys.stdout.write('\n[title] : ')
-sys.stdout.write(title)
+sys.stdout.write(urllib.parse.unquote(title))
 sys.stdout.write('\n[artist] : ')
-sys.stdout.write(artist)
+sys.stdout.write(urllib.parse.unquote(artist))
 sys.stdout.write('\n[thumbnail image URL] : ')
 sys.stdout.write(thumbnail)
