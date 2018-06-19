@@ -1,6 +1,36 @@
 # Using Ciel Music API
 본 문서는 [시엘 뮤직(Ciel Music)](https://music.cieldev.com/)의 API, `getyoutube`, `getchart`와 이를 사용한 간단한 예시 코드에 대해서 설명한다.
 
+
+## search
+검색어로 노래 제목, 아티스트, Ciel Music Verified 여부를 가져옵니다
+```
+https://music.cieldev.com/api/search
+```
+GET 파라미터 `query` 에 검색어를 입력하면 json 타입으로 반환됩니다
+
+| 필드명 | 설명 |
+| :------------- | :------------- |
+| `name` | 노래 제목 |
+| `artist` | 아티스트 |
+| `verified` | 검증된 노래 여부 (true), 없으면 verified 값 자체가 없음 |
+
+
+- `'`, `&`, `*`은 disallowed character로 취급되므로 URL에 포함되어서는 안된다.
+
+
+### Example
+
+#### query
+```
+https://music.cieldev.com/api/search?query=연애
+```
+
+#### result
+```
+[{"name":"연애재판 (恋愛裁判)","artist":"Raon Lee (이라온)","verified":true},{"name":"바케모노가타리 (Bakemonogatari) - 연애 서큘레이션","artist":"휴복 (HUBOG)","verified":true},{"name":"을의 연애 (with 박주원)","artist":"IU","thumbnail":"https:\/\/lastfm-img2.akamaized.net\/i\/u\/300x300\/d6fcaab20cf4ba07d5d00cef3ad96433.png"}, ...
+```
+
 ## getyoutube
 제목과 아티스트명으로 검색해서 Youtube ID 가져오기 
 ```
