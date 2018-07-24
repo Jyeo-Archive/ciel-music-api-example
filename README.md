@@ -28,7 +28,24 @@ https://music.cieldev.com/api/search?query=연애
 
 #### result
 ```
-[{"name":"연애재판 (恋愛裁判)","artist":"Raon Lee (이라온)","verified":true},{"name":"바케모노가타리 (Bakemonogatari) - 연애 서큘레이션","artist":"휴복 (HUBOG)","verified":true},{"name":"을의 연애 (with 박주원)","artist":"IU","thumbnail":"https:\/\/lastfm-img2.akamaized.net\/i\/u\/300x300\/d6fcaab20cf4ba07d5d00cef3ad96433.png"}, ...
+[
+  {
+    "name":"연애재판 (恋愛裁判)",
+    "artist":"Raon Lee (이라온)",
+    "verified":true
+  },
+  {
+    "name":"바케모노가타리 (Bakemonogatari) - 연애 서큘레이션",
+    "artist":"휴복 (HUBOG)",
+    "verified":true
+  },
+  {
+    "name":"을의 연애 (with 박주원)",
+    "artist":"IU",
+    "thumbnail":"https:\/\/lastfm-img2.akamaized.net\/i\/u\/300x300\/d6fcaab20cf4ba07d5d00cef3ad96433.png"
+  }, 
+  ...
+]
 ```
 
 ## getyoutube
@@ -60,7 +77,12 @@ https://music.cieldev.com/api/getyoutube/花요일/EXO-CBX
 
 #### result
 ```
-{"id":"WPAOpBstaYk","title":"EXO-CBX (첸백시) - Blooming Day (花요일) (Color Coded Lyrics) [HAN\/ROM\/ENG]","thumbnail":"https:\/\/i.ytimg.com\/vi\/WPAOpBstaYk\/default.jpg","artist":"EXO-CBX"}
+{
+  "id":"WPAOpBstaYk",
+  "title":"EXO-CBX (첸백시) - Blooming Day (花요일) (Color Coded Lyrics) [HAN\/ROM\/ENG]",
+  "thumbnail":"https:\/\/i.ytimg.com\/vi\/WPAOpBstaYk\/default.jpg",
+  "artist":"EXO-CBX"
+}
 ```
 
 ## getchart
@@ -96,10 +118,29 @@ https://music.cieldev.com/api/getchart/genie
 
 #### result
 ```
-[{"thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/056/930/81056930_1524214278122_1_140x140.JPG","title":" 주지마","artist":"로꼬 & 화사 (마마무)"},{"thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/059/187/81059187_1525072803622_1_140x140.JPG","title":" 밤 (Time for the moon night)","artist":"여자친구 (GFRIEND)"},{"thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/997/959/80997959_1509347822288_1_140x140.JPG","title":" 지나오다","artist":"닐로 (Nilo)"},
-
-(...)
-{"thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/053/641/81053641_1523613436076_1_140x140.JPG","title":" 이로한 (Feat. ELO & Jessi ) (Prod. by Padi)","artist":"이로한 (WEBSTER B)"}]
+[
+  {
+    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/056/930/81056930_1524214278122_1_140x140.JPG",
+    "title":" 주지마",
+    "artist":"로꼬 & 화사 (마마무)"
+  },
+  {
+    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/059/187/81059187_1525072803622_1_140x140.JPG",
+    "title":" 밤 (Time for the moon night)",
+    "artist":"여자친구 (GFRIEND)"
+  },
+  {
+    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/997/959/80997959_1509347822288_1_140x140.JPG",
+    "title":" 지나오다",
+    "artist":"닐로 (Nilo)"
+  },
+  ...
+  {
+    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/053/641/81053641_1523613436076_1_140x140.JPG",
+    "title":" 이로한 (Feat. ELO & Jessi ) (Prod. by Padi)",
+    "artist":"이로한 (WEBSTER B)"
+  }
+]
 ```
 
 # Python Example
