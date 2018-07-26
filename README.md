@@ -86,18 +86,28 @@ https://music.cieldev.com/api/getyoutube/花요일/EXO-CBX
 ```
 
 ## getchart
+
+### melon
 ```
 https://music.cieldev.com/api/getchart/melon
 ```
+
+### bugs
 ```
 https://music.cieldev.com/api/getchart/bugs
 ```
+
+### naver
 ```
 https://music.cieldev.com/api/getchart/naver
 ```
+
+### mnet
 ```
 https://music.cieldev.com/api/getchart/mnet
 ```
+
+### genie
 ```
 https://music.cieldev.com/api/getchart/genie
 ```
