@@ -1,12 +1,16 @@
 # Using Ciel Music API
+
 본 문서는 [시엘 뮤직(Ciel Music)](https://music.cieldev.com/)의 API, `getyoutube`, `getchart`와 이를 사용한 간단한 예시 코드에 대해서 설명한다.
 
 
-## search
+## Search
+
 검색어로 노래 제목, 아티스트, Ciel Music Verified 여부를 가져옵니다
+
 ```
 https://music.cieldev.com/api/search
 ```
+
 GET 파라미터 `query` 에 검색어를 입력하면 json 타입으로 반환됩니다
 
 | 필드명 | 설명 |
@@ -21,13 +25,15 @@ GET 파라미터 `query` 에 검색어를 입력하면 json 타입으로 반환�
 
 ### Example
 
-#### query
+#### Query
+
 ```
 https://music.cieldev.com/api/search?query=연애
 ```
 
-#### result
-```
+#### Result
+
+```JSON
 [
   {
     "name":"연애재판 (恋愛裁判)",
@@ -48,11 +54,14 @@ https://music.cieldev.com/api/search?query=연애
 ]
 ```
 
-## getyoutube
+## Getyoutube
+
 제목과 아티스트명으로 검색해서 Youtube ID 가져오기 
+
 ```
 https://music.cieldev.com/api/getyoutube/(제목)/(아티스트)
 ```
+
 위 링크의 `(제목)`과 `(아티스트)`에 해당하는 곳에 검색할 곡의 제목과 아티스트명을 넣어주면 검색 결과가 JSON 형식으로 반환된다.
 
 | 필드명 | 설명 |
@@ -70,13 +79,15 @@ https://music.cieldev.com/api/getyoutube/(제목)/(아티스트)
 
 ### Example
 
-#### query
+#### Query
+
 ```
 https://music.cieldev.com/api/getyoutube/花요일/EXO-CBX
 ```
 
-#### result
-```
+#### Result
+
+```JSON
 {
   "id":"WPAOpBstaYk",
   "title":"EXO-CBX (첸백시) - Blooming Day (花요일) (Color Coded Lyrics) [HAN\/ROM\/ENG]",
@@ -85,33 +96,25 @@ https://music.cieldev.com/api/getyoutube/花요일/EXO-CBX
 }
 ```
 
-## getchart
+## Getchart
 
-### melon
-```
-https://music.cieldev.com/api/getchart/melon
-```
+차트 데이터 가져오기
 
-### bugs
 ```
-https://music.cieldev.com/api/getchart/bugs
+https://bot.cielsoft.me/raw/(개수)/(차트)
 ```
 
-### naver
-```
-https://music.cieldev.com/api/getchart/naver
-```
-
-### mnet
-```
-https://music.cieldev.com/api/getchart/mnet
-```
-
-### genie
-```
-https://music.cieldev.com/api/getchart/genie
-```
 멜론, 벅스, 네이버, 엠넷, 지니의 음원차트 데이터를 파싱해 JSON 형식으로 가져온다.
+
+위 링크의 `(개수)` 자리에 표시될 상위 차트 데이터의 수를 입력하고, `(차트)` 자리에 데이터를 가져올 차트의 이름을 넣고 GET 요청을 보내면 된다.
+
+| 식별자 | 차트 |
+| :------------- | :------------- |
+| `melon` | 멜론 |
+| `bugs` | 벅스 |
+| `naver` | 네이버 뮤직 |
+| `mnet` | 엠넷 |
+| `genie` | 지니 |
 
 | 필드명 | 설명 |
 | :------------- | :------------- |
@@ -119,48 +122,151 @@ https://music.cieldev.com/api/getchart/genie
 | `title` | 동영상 제목 |
 | `artist` | 아티스트 |
 
-### Example
+### Melon-Example-Query
 
-#### query
 ```
-https://music.cieldev.com/api/getchart/genie
+https://bot.cielsoft.me/raw/3/melon
 ```
 
-#### result
-```
+#### Result
+
+```JSON
 [
   {
-    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/056/930/81056930_1524214278122_1_140x140.JPG",
-    "title":" 주지마",
-    "artist":"로꼬 & 화사 (마마무)"
-  },
+    "thumbnail" : "https://cdnimg.melon.co.kr/cm/album/images/101/91/694/10191694_500.jpg/melon/resize/120/quality/80/optimize", 
+    "artist": "Red Velvet (레드벨벳)", 
+    "title": "Power Up"
+  }, 
   {
-    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/059/187/81059187_1525072803622_1_140x140.JPG",
-    "title":" 밤 (Time for the moon night)",
-    "artist":"여자친구 (GFRIEND)"
-  },
+    "thumbnail": "https://cdnimg.melon.co.kr/cm/album/images/101/79/508/10179508_500.jpg/melon/resize/120/quality/80/optimize", 
+    "artist": "숀 (SHAUN)", 
+    "title": "Way Back Home"
+  }, 
   {
-    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/997/959/80997959_1509347822288_1_140x140.JPG",
-    "title":" 지나오다",
-    "artist":"닐로 (Nilo)"
-  },
-  ...
-  {
-    "thumbnail":"//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/053/641/81053641_1523613436076_1_140x140.JPG",
-    "title":" 이로한 (Feat. ELO & Jessi ) (Prod. by Padi)",
-    "artist":"이로한 (WEBSTER B)"
+    "thumbnail": "https://cdnimg.melon.co.kr/cm/album/images/101/83/127/10183127_500.jpg/melon/resize/120/quality/80/optimize", 
+    "artist": "TWICE (트와이스)", 
+    "title": "Dance The Night Away"
   }
 ]
 ```
 
-# Python Example
-`example.py`에서는 멜론차트 1위 음악의 Youtube ID와 앨범 썸네일, 제목과 아티스트명을 가져와 출력한다.<br>
-이를 사용해서 Python Flask를 이용해서 HTML template에 값을 전달한다던가 하는 것이 가능할 것이다(만들다가 현타와서 주석처리했다).<br>
-`getchart`를 사용해서 1위 음악 정보를 가져온 뒤 이를 이용해서 `getyoutube`로 Youtube ID를 얻는 방식이다.
+### Bugs-Example-Query
+
 ```
-PS C:\Users\JunhoYeo\Desktop\ciel music api> python .\example.py
-[id] : LS74a_bbOgE
-[title] : 주지마
-[artist] : 로꼬
-[thumbnail image URL] : https://cdnimg.melon.co.kr/cm/album/images/101/60/487/10160487_500.jpg/melon/resize/120/quality/80/optimize
+https://bot.cielsoft.me/raw/3/bugs
 ```
+
+#### Result
+
+```JSON
+[
+  {
+    "thumbnail": "https://image.bugsm.co.kr/album/images/50/201865/20186568.jpg?version=20180814180106",
+    "artist": "(여자)아이들", 
+    "title": "한 (一)"
+  }, 
+  {
+    "thumbnail": "https://image.bugsm.co.kr/album/images/50/201847/20184771.jpg?version=20180807002840", 
+    "artist": "Red Velvet (레드벨벳)", 
+    "title": "Power Up"
+  }, 
+  {
+    "thumbnail": "https://image.bugsm.co.kr/album/images/50/7573/757375.jpg?version=20180628180004", 
+    "artist": "숀(SHAUN)", 
+    "title": "Way Back Home"
+  }
+]
+```
+
+### Naver-Example-Query
+
+```
+https://bot.cielsoft.me/raw/3/naver
+```
+
+#### Result
+
+```JSON
+[
+  {
+    "thumbnail": "https://musicmeta-phinf.pstatic.net/album/002/472/2472826.jpg?type=r32Fll&v=20180724120801", 
+    "artist": "숀 (SHAUN)", 
+    "title": "Way Back Home "
+  }, 
+  {
+    "thumbnail": "https://musicmeta-phinf.pstatic.net/album/002/495/2495239.jpg?type=r32Fll&v=20180806175905", 
+    "artist": "Red Velvet (레드벨벳)", 
+    "title": "Power Up "
+  }, 
+  {
+    "thumbnail": "https://musicmeta-phinf.pstatic.net/album/002/480/2480898.jpg?type=r32Fll&v=20180717160329", 
+    "artist": "TWICE(트와이스)", 
+    "title": "Dance The Night Away "
+  }
+]
+```
+
+### Mnet-Example-Query
+
+```
+https://bot.cielsoft.me/raw/3/mnet
+```
+
+#### Result
+
+```JSON
+[
+  {
+    "thumbnail": "https://cmsimg.mnet.com/clipimage/album/50/003/141/3141195.jpg", 
+    "artist": "Red Velvet (레드벨벳)", 
+    "title": "Power Up"
+  }, 
+  {
+    "thumbnail": "https://cmsimg.mnet.com/clipimage/album/50/003/069/3069077.jpg", 
+    "artist": "숀(SHAUN)", 
+    "title": "Way Back Home"
+  }, 
+  {
+    "thumbnail": "https://cmsimg.mnet.com/clipimage/album/50/003/140/3140324.jpg", 
+    "artist": "iKON", 
+    "title": "죽겠다 (KILLING ME)"
+  }
+]
+```
+
+### Genie-Example-Query
+
+```
+https://bot.cielsoft.me/raw/3/genie
+```
+
+#### Result
+
+```JSON
+[
+  {
+    "thumbnail": "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/091/693/81091693_1533539947065_1_140x140.JPG", 
+    "artist": "Red Velvet (레드벨벳)", 
+    "title": "Power Up"
+  }, 
+  {
+    "thumbnail": "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/078/885/81078885_1530075209642_1_140x140.JPG", 
+    "artist": "숀 (SHAUN)", 
+    "title": "Way Back Home"
+  }, 
+  {
+    "thumbnail": "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/074/005/81074005_1529044460289_1_140x140.JPG", 
+    "artist": "BLACKPINK", 
+    "title": "뚜두뚜두 (DDU-DU DDU-DU)"
+  }
+]
+```
+
+# Example Usage
+
+PR을 통해서 새로운 예제를 추가해 주세요.
+
+Add your own examples via Pull Requests.
+
+- [Example with cURL](./example-curl.sh)
+- [Example with Python2/Python3](./example-python.py)
